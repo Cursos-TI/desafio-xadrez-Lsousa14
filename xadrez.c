@@ -40,7 +40,27 @@ int main(){
         movimento_rainha++;
     } while (movimento_rainha < casas_rainha);
 
+
+    //Movimento do  Cavalo (loops aninhados)
+
+     printf("\nMovimento do Cavalo:\n");
+
+    int passosBaixo = 2;
+    int passosEsquerda = 1;
+
+    for (int i = 0; i < passosBaixo; i++) {
+        printf("Baixo\n");
+
+        if (i == passosBaixo - 1) {
+            for (int j = 0; j < passosEsquerda; j++) {
+                printf("Esquerda\n");
+            }
+        }
+    }
+
     return 0;
 }
+
+
 
 
