@@ -1,68 +1,54 @@
 #include <stdio.h>
 
-// Torre (recursivo)
+int main(){
 
-void moverTorre(int casas) {
-    if (casas > 0) {
-        printf("Direita\n");
-        moverTorre(casas - 1);
-    }
-}
+    // TORRE (usando FOR)
+    int i;
+    int casas_torre = 5;
 
-// Bispo (recursivo + loops aninhados)
-
-void moverBispo(int casas) {
-    if (casas > 0) {
-        for (int i = 0; i < 1; i++) {         
-            for (int j = 0; j < 1; j++) {     
-                printf("Cima, Direita\n");
-            }
-        }
-        moverBispo(casas - 1);
-    }
-}
-
-// Rainha (recursivo)
-
-void moverRainha(int casas) {
-    if (casas > 0) {
-        printf("Esquerda\n");
-        moverRainha(casas - 1);
-    }
-}
-
-// Cavalo (loops aninhados com break e continue)
-
-void moverCavalo(int cima, int direita) {
-    for (int i = 0; i < cima; i++) {
-        
-        
-        printf("Cima\n");
-
-        if (i == cima - 1) {
-            for (int j = 0; j < direita + 2; j++) {
-                if (j == direita) {
-                    break;
-                }
-                printf("Direita\n");
-            }
-        }
-    }
-}
-
-int main() {
     printf("Movimento da Torre:\n");
-    moverTorre(5);
+
+    for (i = 0; i < casas_torre; i++) {
+        printf("Direita\n");
+    }
+
+    // BISPO (usando WHILE)
+    int movimento_bispo = 0;
+    int casas_bispo = 5;
 
     printf("\nMovimento do Bispo:\n");
-    moverBispo(5);
+
+    while (movimento_bispo < casas_bispo) {
+        printf("Cima, Direita\n");
+        movimento_bispo++;
+    }
+
+    // RAINHA (usando DO-WHILE)
+    int movimento_rainha = 0;
+    int casas_rainha = 8;
 
     printf("\nMovimento da Rainha:\n");
-    moverRainha(8);
 
+    do {
+        printf("Esquerda\n");
+        movimento_rainha++;
+    } while (movimento_rainha < casas_rainha);
+
+    // CAVALO
     printf("\nMovimento do Cavalo:\n");
-    moverCavalo(2, 1);
+
+    int passosBaixo = 2;
+    int passosEsquerda = 1;
+
+    for (int i = 0; i < passosBaixo; i++) {
+        printf("Baixo\n");
+
+        if (i == passosBaixo - 1) {
+            for (int j = 0; j < passosEsquerda; j++) {
+                printf("Esquerda\n");
+            }
+        }
+    }
 
     return 0;
-
 }
